@@ -1,1 +1,1 @@
-This repository holds the code for the website "alikhanfahad.github.io" created using Manus AI. ("Mens et manus")
+This repository holds the code for the website <a href="https://alikhanfahad.github.io">alikhanfahad.github.io</a> created using Manus AI. ("Mens et manus")
