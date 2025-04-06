@@ -4,57 +4,49 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fahad Ali Khan | Physics Researcher & Computational Scientist</title>
-    <meta name="description" content="Personal website of Fahad Ali Khan, Physics researcher and computational scientist specializing in AI, neuroscience, and biophysics.">
     
-    <!-- Favicon -->
-    <link rel="icon" type="image/png" href="assets/images/favicon.png">
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Roboto:wght@300;400;500&family=Fira+Code&display=swap" rel="stylesheet">
     
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     
-    <!-- Font Awesome for icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    
-    <!-- Main Stylesheet -->
-    <link rel="stylesheet" href="assets/css/main.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <!-- Header -->
-    <header class="header">
-        <div class="container">
-            <nav class="navbar">
-                <a href="index.html" class="logo">Fahad<span>AK</span></a>
-                
-                <ul class="nav-menu">
-                    <li class="nav-item"><a href="#home" class="nav-link active">Home</a></li>
-                    <li class="nav-item"><a href="#about" class="nav-link">About</a></li>
-                    <li class="nav-item"><a href="#education" class="nav-link">Education</a></li>
-                    <li class="nav-item"><a href="#projects" class="nav-link">Projects</a></li>
-                    <li class="nav-item"><a href="#skills" class="nav-link">Skills</a></li>
-                    <li class="nav-item"><a href="blog/index.html" class="nav-link">Blog</a></li>
-                    <li class="nav-item"><a href="portfolio/index.html" class="nav-link">Portfolio</a></li>
-                    <li class="nav-item"><a href="#contact" class="nav-link">Contact</a></li>
-                </ul>
-                
-                <div class="hamburger">
-                    <span class="bar"></span>
-                    <span class="bar"></span>
-                    <span class="bar"></span>
-                </div>
-            </nav>
+    <header class="header" id="header">
+        <div class="container header-container">
+            <a href="#" class="logo">Fahad<span>AK</span></a>
+            
+            <button class="mobile-menu-btn" id="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <ul class="nav-menu" id="nav-menu">
+                <li class="nav-item"><a href="#home" class="nav-link active">Home</a></li>
+                <li class="nav-item"><a href="#about" class="nav-link">About</a></li>
+                <li class="nav-item"><a href="#education" class="nav-link">Education</a></li>
+                <li class="nav-item"><a href="#projects" class="nav-link">Projects</a></li>
+                <li class="nav-item"><a href="#skills" class="nav-link">Skills</a></li>
+                <li class="nav-item"><a href="#blog" class="nav-link">Blog</a></li>
+                <li class="nav-item"><a href="#portfolio" class="nav-link">Portfolio</a></li>
+                <li class="nav-item"><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
         </div>
     </header>
 
     <!-- Hero Section -->
-    <section id="home" class="hero">
+    <section class="hero section" id="home">
+        <div id="neural-network-animation" class="hero-animation"></div>
+        
         <div class="container">
-            <div class="hero-content">
-                <h1 class="animate">Fahad Ali Khan</h1>
-                <p class="animate">Physics Researcher & Computational Scientist</p>
-                <div class="hero-buttons animate">
-                    <a href="#projects" class="btn btn-primary">View My Projects</a>
+            <div class="hero-content" data-animate="fade-in">
+                <h1 class="hero-title">Fahad Ali Khan</h1>
+                <p class="hero-subtitle">Physics Researcher & Computational Scientist</p>
+                <div class="hero-btns">
+                    <a href="#projects" class="btn">View My Projects</a>
                     <a href="#contact" class="btn btn-secondary">Get In Touch</a>
                 </div>
             </div>
@@ -62,26 +54,28 @@
     </section>
 
     <!-- About Section -->
-    <section id="about" class="section">
+    <section class="about section" id="about">
+        <div id="molecular-particles-animation" class="animation-container interactive"></div>
+        
         <div class="container">
             <h2 class="section-title">About Me</h2>
             
             <div class="about-content">
-                <div class="about-image animate">
-                    <img src="assets/images/profile.jpg" alt="Fahad Ali Khan">
+                <div class="about-image" data-animate="slide-in-left">
+                    <img src="https://alikhanfahad.github.io/assets/img/fahad.jpg" alt="Fahad Ali Khan">
                 </div>
                 
-                <div class="about-text">
-                    <h3 class="animate">Hello, I'm Fahad</h3>
-                    <p class="animate">I am a BS-MS Dual Degree student at the Indian Institute of Science Education and Research (IISER) Kolkata, majoring in Physics. My research interests span computational neuroscience, artificial intelligence, and biophysics.</p>
+                <div class="about-text" data-animate="slide-in-right">
+                    <h3>Hello, I'm Fahad</h3>
+                    <p>I am a BS-MS Dual Degree student at the Indian Institute of Science Education and Research (IISER) Kolkata, majoring in Physics. My research interests span computational neuroscience, artificial intelligence, and biophysics.</p>
                     
-                    <p class="animate">Currently, I'm working with the MIT Computational Biology Group as part of the MIT AI Mantis Rising Scholar Program under Professor Manolis Kellis. My work focuses on creating and improving the MANTIS AI platform's landscapes for drug discovery, molecular dynamics, and patient trajectory analysis.</p>
+                    <p>Currently, I'm working with the MIT Computational Biology Group as part of the MIT AI Mantis Rising Scholar Program under Professor Manolis Kellis. My work focuses on creating and improving the MANTIS AI platform's landscapes for drug discovery, molecular dynamics, and patient trajectory analysis.</p>
                     
-                    <p class="animate">I'm passionate about applying computational methods to solve complex problems in science and healthcare. My background combines rigorous physics education with practical experience in programming, data analysis, and machine learning.</p>
+                    <p>I'm passionate about applying computational methods to solve complex problems in science and healthcare. My background combines rigorous physics education with practical experience in programming, data analysis, and machine learning.</p>
                     
-                    <div class="about-buttons animate">
-                        <a href="#education" class="btn btn-dark">My Education</a>
-                        <a href="#" class="btn btn-primary">Download CV</a>
+                    <div class="about-btns">
+                        <a href="#education" class="btn">My Education</a>
+                        <a href="#" class="btn btn-secondary">Download CV</a>
                     </div>
                 </div>
             </div>
@@ -89,56 +83,65 @@
     </section>
 
     <!-- Education Section -->
-    <section id="education" class="section" style="background-color: var(--light-gray);">
+    <section class="education section" id="education">
+        <div id="brain-connectivity-animation" class="animation-container"></div>
+        
         <div class="container">
             <h2 class="section-title">Education</h2>
             
             <div class="timeline">
-                <div class="timeline-item left">
-                    <div class="timeline-content animate">
+                <div class="timeline-item" data-animate="fade-in">
+                    <div class="timeline-content">
                         <div class="timeline-date">2023 - 2028</div>
-                        <h3>BS-MS Dual Degree</h3>
-                        <h4>Indian Institute of Science Education and Research Kolkata</h4>
+                        <h3 class="timeline-title">BS-MS Dual Degree</h3>
+                        <h4 class="timeline-subtitle">Indian Institute of Science Education and Research Kolkata</h4>
                         <p>Major: Physics</p>
                         <p>CGPA: 8.57/10</p>
                     </div>
+                    <div class="timeline-dot"></div>
                 </div>
                 
-                <div class="timeline-item right">
-                    <div class="timeline-content animate">
+                <div class="timeline-item" data-animate="fade-in">
+                    <div class="timeline-content">
                         <div class="timeline-date">2022</div>
-                        <h3>AISSCE (Class 12)</h3>
-                        <h4>Jingle Bells Public School, Bareilly</h4>
+                        <h3 class="timeline-title">AISSCE (Class 12)</h3>
+                        <h4 class="timeline-subtitle">Jingle Bells Public School, Bareilly</h4>
                     </div>
+                    <div class="timeline-dot"></div>
                 </div>
                 
-                <div class="timeline-item left">
-                    <div class="timeline-content animate">
+                <div class="timeline-item" data-animate="fade-in">
+                    <div class="timeline-content">
                         <div class="timeline-date">2020</div>
-                        <h3>AISSE (Class 10)</h3>
-                        <h4>Jingle Bells Public School, Bareilly</h4>
+                        <h3 class="timeline-title">AISSE (Class 10)</h3>
+                        <h4 class="timeline-subtitle">Jingle Bells Public School, Bareilly</h4>
                         <p>Score: 98%</p>
                     </div>
+                    <div class="timeline-dot"></div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Projects Section -->
-    <section id="projects" class="section">
+    <section class="projects section" id="projects">
+        <div id="dna-helix-animation" class="animation-container"></div>
+        
         <div class="container">
             <h2 class="section-title">Featured Projects</h2>
             
-            <div class="project-filters animate">
+            <div class="project-filters">
                 <button class="filter-btn active" data-filter="all">All</button>
                 <button class="filter-btn" data-filter="ai">AI</button>
                 <button class="filter-btn" data-filter="neuroscience">Neuroscience</button>
                 <button class="filter-btn" data-filter="biophysics">Biophysics</button>
             </div>
             
-            <div class="grid grid-2">
-                <div class="project-card animate ai">
-                    <div class="project-image" style="background-image: url('assets/images/project-placeholder-1.jpg');"></div>
+            <div class="projects-grid">
+                <div class="project-card" data-category="ai computational-biology healthcare" data-animate="scale-in">
+                    <div class="project-image">
+                        <img src="https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="MIT AI Mantis Project">
+                    </div>
                     <div class="project-content">
                         <h3 class="project-title">MIT AI Mantis Rising Scholar Program</h3>
                         <p class="project-description">Working with the MIT Computational Biology Group under Professor Manolis Kellis to improve the MANTIS AI platform's landscapes for drug discovery, molecular dynamics, and patient trajectory analysis.</p>
@@ -147,12 +150,14 @@
                             <span class="project-tag">Computational Biology</span>
                             <span class="project-tag">Healthcare</span>
                         </div>
-                        <a href="projects/mantis-ai.html" class="btn btn-dark">View Project</a>
+                        <a href="#" class="project-link">View Project</a>
                     </div>
                 </div>
                 
-                <div class="project-card animate neuroscience">
-                    <div class="project-image" style="background-image: url('assets/images/project-placeholder-2.jpg');"></div>
+                <div class="project-card" data-category="neuroscience fmri network-analysis" data-animate="scale-in">
+                    <div class="project-image">
+                        <img src="https://images.unsplash.com/photo-1559757175-7cb056fba93d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Brain Networks Project">
+                    </div>
                     <div class="project-content">
                         <h3 class="project-title">Investigating Functional Brain Networks</h3>
                         <p class="project-description">Research on brain regions involved in mathematical and linguistic processing using fMRI data from the Human Connectome Project, focusing on Dynamic Functional Connectivity Analysis and Graph Theory applications.</p>
@@ -161,182 +166,196 @@
                             <span class="project-tag">fMRI</span>
                             <span class="project-tag">Network Analysis</span>
                         </div>
-                        <a href="projects/brain-networks.html" class="btn btn-dark">View Project</a>
+                        <a href="#" class="project-link">View Project</a>
                     </div>
                 </div>
             </div>
             
-            <div class="text-center animate">
-                <a href="projects/index.html" class="btn btn-primary">View All Projects</a>
+            <div class="text-center" data-animate="fade-in">
+                <a href="#" class="btn">View All Projects</a>
             </div>
         </div>
     </section>
 
     <!-- Skills Section -->
-    <section id="skills" class="section" style="background-color: var(--light-gray);">
+    <section class="skills section" id="skills">
         <div class="container">
             <h2 class="section-title">Skills & Certifications</h2>
             
             <div class="skills-container">
-                <div class="skill-category animate">
-                    <h3>Programming Languages</h3>
-                    <div class="skill-item">
-                        <div class="skill-name">
-                            <span>Python</span>
-                            <span>90%</span>
+                <div class="skills-category" data-animate="slide-in-left">
+                    <h3 class="skills-category-title">Programming Languages</h3>
+                    
+                    <div class="skill-item" data-value="90" data-label="Python">
+                        <div class="skill-info">
+                            <span class="skill-name">Python</span>
+                            <span class="skill-percentage">90%</span>
                         </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" style="width: 90%;"></div>
+                        <div class="skill-bar-container">
+                            <div class="skill-bar-progress" style="width: 90%"></div>
                         </div>
                     </div>
                     
-                    <div class="skill-item">
-                        <div class="skill-name">
-                            <span>C</span>
-                            <span>75%</span>
+                    <div class="skill-item" data-value="75" data-label="C">
+                        <div class="skill-info">
+                            <span class="skill-name">C</span>
+                            <span class="skill-percentage">75%</span>
                         </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" style="width: 75%;"></div>
+                        <div class="skill-bar-container">
+                            <div class="skill-bar-progress" style="width: 75%"></div>
                         </div>
                     </div>
                 </div>
                 
-                <div class="skill-category animate">
-                    <h3>Tools & Technologies</h3>
-                    <div class="skill-item">
-                        <div class="skill-name">
-                            <span>LaTeX</span>
-                            <span>85%</span>
+                <div class="skills-category" data-animate="slide-in-right">
+                    <h3 class="skills-category-title">Tools & Technologies</h3>
+                    
+                    <div class="skill-item" data-value="85" data-label="LaTeX">
+                        <div class="skill-info">
+                            <span class="skill-name">LaTeX</span>
+                            <span class="skill-percentage">85%</span>
                         </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" style="width: 85%;"></div>
+                        <div class="skill-bar-container">
+                            <div class="skill-bar-progress" style="width: 85%"></div>
                         </div>
                     </div>
                     
-                    <div class="skill-item">
-                        <div class="skill-name">
-                            <span>Git</span>
-                            <span>80%</span>
+                    <div class="skill-item" data-value="80" data-label="Git">
+                        <div class="skill-info">
+                            <span class="skill-name">Git</span>
+                            <span class="skill-percentage">80%</span>
                         </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" style="width: 80%;"></div>
-                        </div>
-                    </div>
-                    
-                    <div class="skill-item">
-                        <div class="skill-name">
-                            <span>MATLAB</span>
-                            <span>70%</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" style="width: 70%;"></div>
+                        <div class="skill-bar-container">
+                            <div class="skill-bar-progress" style="width: 80%"></div>
                         </div>
                     </div>
                     
-                    <div class="skill-item">
-                        <div class="skill-name">
-                            <span>Autodesk Fusion 360</span>
-                            <span>65%</span>
+                    <div class="skill-item" data-value="70" data-label="MATLAB">
+                        <div class="skill-info">
+                            <span class="skill-name">MATLAB</span>
+                            <span class="skill-percentage">70%</span>
                         </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" style="width: 65%;"></div>
+                        <div class="skill-bar-container">
+                            <div class="skill-bar-progress" style="width: 70%"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-item" data-value="65" data-label="Autodesk Fusion 360">
+                        <div class="skill-info">
+                            <span class="skill-name">Autodesk Fusion 360</span>
+                            <span class="skill-percentage">65%</span>
+                        </div>
+                        <div class="skill-bar-container">
+                            <div class="skill-bar-progress" style="width: 65%"></div>
                         </div>
                     </div>
                 </div>
             </div>
             
-            <h3 class="sub-section-title animate">Certifications & Workshops</h3>
-            
-            <div class="grid grid-3">
-                <div class="certification-card animate">
-                    <div class="certification-date">November 2024</div>
-                    <h4>BioHack3D CSAW 2024</h4>
-                    <p>Won 2nd position in this event focusing on AI in healthcare and biochip security.</p>
+            <div class="certifications">
+                <h3 class="section-title">Certifications & Workshops</h3>
+                
+                <div class="cert-item" data-animate="fade-in">
+                    <div class="cert-date">November 2024</div>
+                    <div class="cert-content">
+                        <h4 class="cert-title">BioHack3D CSAW 2024</h4>
+                        <p class="cert-organization">Won 2nd position in this event focusing on AI in healthcare and biochip security.</p>
+                    </div>
                 </div>
                 
-                <div class="certification-card animate">
-                    <div class="certification-date">August 2024</div>
-                    <h4>Next Epoch 2024</h4>
-                    <p>Rouskin Lab Harvard Medical School - Deep Learning concepts and applications in Biochemistry.</p>
+                <div class="cert-item" data-animate="fade-in">
+                    <div class="cert-date">August 2024</div>
+                    <div class="cert-content">
+                        <h4 class="cert-title">Next Epoch 2024</h4>
+                        <p class="cert-organization">Rouskin Lab Harvard Medical School - Deep Learning concepts and applications in Biochemistry.</p>
+                    </div>
                 </div>
                 
-                <div class="certification-card animate">
-                    <div class="certification-date">July 2024</div>
-                    <h4>Computational Neuroscience</h4>
-                    <p>Neuromatch Academy - Machine learning and causality research in neuroscience.</p>
+                <div class="cert-item" data-animate="fade-in">
+                    <div class="cert-date">July 2024</div>
+                    <div class="cert-content">
+                        <h4 class="cert-title">Computational Neuroscience</h4>
+                        <p class="cert-organization">Neuromatch Academy - Machine learning and causality research in neuroscience.</p>
+                    </div>
                 </div>
-            </div>
-            
-            <div class="text-center animate">
-                <a href="skills.html" class="btn btn-primary">View All Certifications</a>
+                
+                <div class="text-center" data-animate="fade-in">
+                    <a href="#" class="btn">View All Certifications</a>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Blog Preview Section -->
-    <section id="blog-preview" class="section">
+    <!-- Blog Section -->
+    <section class="blog section" id="blog">
         <div class="container">
             <h2 class="section-title">Latest from the Blog</h2>
             
-            <div class="grid grid-3">
-                <div class="blog-card animate">
-                    <div class="blog-image" style="background-image: url('assets/images/blog-placeholder-1.jpg');"></div>
-                    <div class="blog-content">
+            <div class="blog-grid">
+                <div class="blog-card" data-animate="slide-up">
+                    <div class="blog-image">
+                        <img src="https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="AI for Drug Discovery">
                         <div class="blog-date">April 5, 2025</div>
+                    </div>
+                    <div class="blog-content">
                         <h3 class="blog-title">Advances in AI for Drug Discovery</h3>
                         <p class="blog-excerpt">Exploring how artificial intelligence is revolutionizing the drug discovery process, with a focus on recent breakthroughs in computational methods.</p>
-                        <div class="blog-categories">
-                            <span class="blog-category">AI</span>
-                            <span class="blog-category">Healthcare</span>
+                        <div class="blog-tags">
+                            <span class="blog-tag">AI</span>
+                            <span class="blog-tag">Healthcare</span>
                         </div>
                     </div>
                 </div>
                 
-                <div class="blog-card animate">
-                    <div class="blog-image" style="background-image: url('assets/images/blog-placeholder-2.jpg');"></div>
-                    <div class="blog-content">
+                <div class="blog-card" data-animate="slide-up">
+                    <div class="blog-image">
+                        <img src="https://images.unsplash.com/photo-1559757175-7cb056fba93d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Brain Networks">
                         <div class="blog-date">March 20, 2025</div>
+                    </div>
+                    <div class="blog-content">
                         <h3 class="blog-title">Understanding Brain Networks</h3>
                         <p class="blog-excerpt">A deep dive into how neural networks in the brain process different types of information, from mathematical calculations to language comprehension.</p>
-                        <div class="blog-categories">
-                            <span class="blog-category">Neuroscience</span>
-                            <span class="blog-category">Research</span>
+                        <div class="blog-tags">
+                            <span class="blog-tag">Neuroscience</span>
+                            <span class="blog-tag">Research</span>
                         </div>
                     </div>
                 </div>
                 
-                <div class="blog-card animate">
-                    <div class="blog-image" style="background-image: url('assets/images/blog-placeholder-3.jpg');"></div>
-                    <div class="blog-content">
+                <div class="blog-card" data-animate="slide-up">
+                    <div class="blog-image">
+                        <img src="https://images.unsplash.com/photo-1530210124550-912dc1381cb8?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Biophysics Future">
                         <div class="blog-date">February 15, 2025</div>
+                    </div>
+                    <div class="blog-content">
                         <h3 class="blog-title">The Future of Biophysics</h3>
                         <p class="blog-excerpt">Examining emerging trends in biophysics research and how interdisciplinary approaches are leading to new discoveries in biological systems.</p>
-                        <div class="blog-categories">
-                            <span class="blog-category">Biophysics</span>
-                            <span class="blog-category">Physics</span>
+                        <div class="blog-tags">
+                            <span class="blog-tag">Biophysics</span>
+                            <span class="blog-tag">Physics</span>
                         </div>
                     </div>
                 </div>
             </div>
             
-            <div class="text-center animate">
-                <a href="blog/index.html" class="btn btn-primary">Visit the Blog</a>
+            <div class="text-center" data-animate="fade-in">
+                <a href="#" class="btn">Visit the Blog</a>
             </div>
         </div>
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="section" style="background-color: var(--light-gray);">
+    <section class="contact section" id="contact">
         <div class="container">
             <h2 class="section-title">Get in Touch</h2>
             
             <div class="contact-container">
-                <div class="contact-info animate">
-                    <h3>Contact Information</h3>
-                    <p>Feel free to reach out to me for research collaborations, speaking engagements, or just to connect!</p>
+                <div class="contact-info" data-animate="slide-in-left">
+                    <h3 class="contact-info-title">Contact Information</h3>
+                    <p class="contact-info-text">Feel free to reach out to me for research collaborations, speaking engagements, or just to connect!</p>
                     
-                    <div class="contact-item">
-                        <div class="contact-icon">
+                    <div class="contact-info-item">
+                        <div class="contact-info-icon">
                             <i class="fas fa-envelope"></i>
                         </div>
                         <div>
@@ -344,34 +363,12 @@
                             <p>fak23ms153@iiserkol.ac.in</p>
                         </div>
                     </div>
-                    
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fas fa-map-marker-alt"></i>
-                        </div>
-                        <div>
-                            <h4>Location</h4>
-                            <p>IISER Kolkata, Mohanpur, West Bengal, India</p>
-                        </div>
-                    </div>
-                    
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fas fa-globe"></i>
-                        </div>
-                        <div>
-                            <h4>Social Media</h4>
-                            <div class="social-links">
-                                <a href="https://github.com/AKFahad" target="_blank"><i class="fab fa-github"></i></a>
-                                <a href="https://twitter.com/AK_Fahad" target="_blank"><i class="fab fa-twitter"></i></a>
-                            </div>
-                        </div>
-                    </div>
                 </div>
                 
-                <div class="contact-form-container animate">
-                    <h3>Send a Message</h3>
-                    <form id="contact-form" class="contact-form">
+                <div class="contact-form" data-animate="slide-in-right">
+                    <h3 class="contact-form-title">Send a Message</h3>
+                    
+                    <form id="contact-form">
                         <div class="form-group">
                             <label for="name" class="form-label">Name</label>
                             <input type="text" id="name" class="form-control" required>
@@ -392,7 +389,7 @@
                             <textarea id="message" class="form-control" required></textarea>
                         </div>
                         
-                        <button type="submit" class="btn btn-primary">Send Message</button>
+                        <button type="submit" class="btn form-submit">Send Message</button>
                     </form>
                 </div>
             </div>
@@ -402,33 +399,28 @@
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
-            <div class="footer-content">
-                <div class="footer-about">
+            <div class="footer-container">
+                <div class="footer-info">
                     <div class="footer-logo">Fahad<span>AK</span></div>
-                    <p class="footer-description">Physics researcher and computational scientist specializing in AI, neuroscience, and biophysics.</p>
+                    <p class="footer-text">Physics Researcher & Computational Scientist specializing in computational neuroscience, artificial intelligence, and biophysics.</p>
+                    
                     <div class="footer-social">
-                        <a href="https://github.com/AKFahad" class="social-link" target="_blank"><i class="fab fa-github"></i></a>
-                        <a href="https://twitter.com/AK_Fahad" class="social-link" target="_blank"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-github"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
                     </div>
                 </div>
                 
-                <div class="footer-links">
-                    <h3 class="footer-heading">Quick Links</h3>
+                <div class="footer-links-container">
+                    <h4 class="footer-title">Quick Links</h4>
                     <ul class="footer-links">
                         <li class="footer-link"><a href="#home">Home</a></li>
                         <li class="footer-link"><a href="#about">About</a></li>
+                        <li class="footer-link"><a href="#education">Education</a></li>
                         <li class="footer-link"><a href="#projects">Projects</a></li>
-                        <li class="footer-link"><a href="blog/index.html">Blog</a></li>
+                        <li class="footer-link"><a href="#skills">Skills</a></li>
+                        <li class="footer-link"><a href="#blog">Blog</a></li>
                         <li class="footer-link"><a href="#contact">Contact</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-links">
-                    <h3 class="footer-heading">Resources</h3>
-                    <ul class="footer-links">
-                        <li class="footer-link"><a href="#">Download CV</a></li>
-                        <li class="footer-link"><a href="projects/index.html">All Projects</a></li>
-                        <li class="footer-link"><a href="skills.html">Certifications</a></li>
                     </ul>
                 </div>
             </div>
@@ -439,7 +431,13 @@
         </div>
     </footer>
 
-    <!-- JavaScript -->
-    <script src="assets/js/main.js"></script>
+    <!-- JavaScript Libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    
+    <!-- Custom JavaScript -->
+    <script src="animations.js"></script>
+    <script src="main.js"></script>
 </body>
 </html>
