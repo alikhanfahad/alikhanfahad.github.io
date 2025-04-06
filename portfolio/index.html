@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio | Fahad Ali Khan</title>
+    <meta name="description" content="Portfolio of Fahad Ali Khan, showcasing research projects, visualizations, and academic work in physics, AI, and computational neuroscience.">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="../assets/images/favicon.png">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- Main Stylesheet -->
+    <link rel="stylesheet" href="../assets/css/main.css">
+    
+    <!-- Portfolio-specific styles -->
+    <style>
+        .portfolio-header {
+            background-color: var(--secondary-color);
+            color: var(--white);
+            padding: var(--spacing-xl) 0;
+            text-align: center;
+        }
+        
+        .portfolio-header h1 {
+            color: var(--white);
+            margin-bottom: var(--spacing-sm);
+        }
+        
+        .portfolio-header p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .portfolio-filters {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: var(--spacing-sm);
+            margin-bottom: var(--spacing-xl);
+        }
+        
+        .portfolio-filter {
+            background-color: var(--light-gray);
+            color: var(--dark-gray);
+            padding: 0.5rem 1.5rem;
+            border-radius: var(--border-radius);
+            cursor: pointer;
+            transition: all var(--transition-fast);
+            border: none;
+            font-weight: 600;
+        }
+        
+        .portfolio-filter:hover,
+        .portfolio-filter.active {
+            background-color: var(--accent-color);
+            color: var(--primary-color);
+        }
+        
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: var(--spacing-lg);
+        }
+        
+        .portfolio-item {
+            position: relative;
+            border-radius: var(--border-radius-lg);
+            overflow: hidden;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+            transition: transform var(--transition-medium);
+        }
+        
+        .portfolio-item:hover {
+            transform: translateY(-10px);
+        }
+        
+        .portfolio-image {
+            height: 250px;
+            background-color: var(--medium-gray);
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .portfolio-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.8) 100%);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: var(--spacing-md);
+            color: var(--white);
+            opacity: 0;
+            transition: opacity var(--transition-medium);
+        }
+        
+        .portfolio-item:hover .portfolio-overlay {
+            opacity: 1;
+        }
+        
+        .portfolio-title {
+            font-size: 1.25rem;
+            margin-bottom: var(--spacing-xs);
+            color: var(--white);
+        }
+        
+        .portfolio-category {
+            font-size: 0.875rem;
+            margin-bottom: var(--spacing-sm);
+            color: var(--accent-color);
+        }
+        
+        .portfolio-buttons {
+            display: flex;
+            gap: var(--spacing-sm);
+        }
+        
+        .portfolio-btn {
+            padding: 0.5rem 1rem;
+            border-radius: var(--border-radius);
+            font-size: 0.875rem;
+            font-weight: 600;
+            text-align: center;
+            cursor: pointer;
+            transition: all var(--transition-fast);
+            border: none;
+        }
+        
+        .portfolio-btn-view {
+            background-color: var(--accent-color);
+            color: var(--primary-color);
+        }
+        
+        .portfolio-btn-view:hover {
+            background-color: #e6ac00;
+        }
+        
+        .portfolio-btn-details {
+            background-color: transparent;
+            color: var(--white);
+            border: 1px solid var(--white);
+        }
+        
+        .portfolio-btn-details:hover {
+            background-color: var(--white);
+            color: var(--primary-color);
+        }
+        
+        .portfolio-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            z-index: 1000;
+            overflow-y: auto;
+            padding: var(--spacing-lg) 0;
+        }
+        
+        .portfolio-modal-content {
+            background-color: var(--white);
+            max-width: 800px;
+            margin: 0 auto;
+            border-radius: var(--border-radius-lg);
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .portfolio-modal-close {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            width: 30px;
+            height: 30px;
+            background-color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 10;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .portfolio-modal-image {
+            height: 400px;
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .portfolio-modal-body {
+            padding: var(--spacing-lg);
+        }
+        
+        .portfolio-modal-title {
+            margin-bottom: var(--spacing-sm);
+        }
+        
+        .portfolio-modal-category {
+            color: var(--secondary-color);
+            margin-bottom: var(--spacing-md);
+            font-weight: 600;
+        }
+        
+        .portfolio-modal-description {
+            margin-bottom: var(--spacing-md);
+        }
+        
+        .portfolio-modal-details {
+            margin-bottom: var(--spacing-md);
+        }
+        
+        .portfolio-modal-detail {
+            display: flex;
+            margin-bottom: var(--spacing-sm);
+        }
+        
+        .portfolio-modal-detail-label {
+            font-weight: 600;
+            width: 120px;
+        }
+        
+        .portfolio-modal-buttons {
+            display: flex;
+            gap: var(--spacing-sm);
+        }
+        
+        @media (max-width: 768px) {
+            .portfolio-filters {
+                flex-direction: row;
+                overflow-x: auto;
+                padding-bottom: var(--spacing-sm);
+            }
+            
+            .portfolio-filter {
+                flex: 0 0 auto;
+            }
+            
+            .portfolio-modal-content {
+                margin: 0 var(--spacing-md);
+            }
+            
+            .portfolio-modal-image {
+                height: 250px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <nav class="navbar">
+                <a href="../index.html" class="logo">Fahad<span>AK</span></a>
+                
+                <ul class="nav-menu">
+                    <li class="nav-item"><a href="../index.html" class="nav-link">Home</a></li>
+                    <li class="nav-item"><a href="../index.html#about" class="nav-link">About</a></li>
+                    <li class="nav-item"><a href="../index.html#education" class="nav-link">Education</a></li>
+                    <li class="nav-item"><a href="../index.html#projects" class="nav-link">Projects</a></li>
+                    <li class="nav-item"><a href="../index.html#skills" class="nav-link">Skills</a></li>
+                    <li class="nav-item"><a href="../blog/index.html" class="nav-link">Blog</a></li>
+                    <li class="nav-item"><a href="index.html" class="nav-link active">Portfolio</a></li>
+                    <li class="nav-item"><a href="../index.html#contact" class="nav-link">Contact</a></li>
+                </ul>
+                
+                <div class="hamburger">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Portfolio Header -->
+    <section class="portfolio-header">
+        <div class="container">
+            <h1>My Portfolio</h1>
+            <p>A showcase of my research projects, visualizations, and academic work</p>
+        </div>
+    </section>
+
+    <!-- Portfolio Content -->
+    <section class="section">
+        <div class="container">
+            <div class="portfolio-filters">
+                <button class="portfolio-filter active" data-filter="all">All</button>
+                <button class="portfolio-filter" data-filter="research">Research</button>
+                <button class="portfolio-filter" data-filter="visualization">Visualization</button>
+                <button class="portfolio-filter" data-filter="ai">AI</button>
+                <button class="portfolio-filter" data-filter="neuroscience">Neuroscience</button>
+                <button class="portfolio-filter" data-filter="biophysics">Biophysics</button>
+            </div>
+            
+            <div class="portfolio-grid">
+                <!-- Portfolio Item 1 -->
+                <div class="portfolio-item animate" data-category="ai research">
+                    <div class="portfolio-image" style="background-image: url('../assets/images/portfolio-placeholder-1.jpg');"></div>
+                    <div class="portfolio-overlay">
+                        <h3 class="portfolio-title">MANTIS AI Platform Landscapes</h3>
+                        <div class="portfolio-category">AI / Computational Biology</div>
+                        <div class="portfolio-buttons">
+                            <a href="#" class="portfolio-btn portfolio-btn-view" data-modal="portfolio-modal-1">View Details</a>
+                            <a href="../projects/mantis-ai.html" class="portfolio-btn portfolio-btn-details">Project Page</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Portfolio Item 2 -->
+                <div class="portfolio-item animate" data-category="neuroscience visualization">
+                    <div class="portfolio-image" style="background-image: url('../assets/images/portfolio-placeholder-2.jpg');"></div>
+                    <div class="portfolio-overlay">
+                        <h3 class="portfolio-title">Brain Network Visualization</h3>
+                        <div class="portfolio-category">Neuroscience / Data Visualization</div>
+                        <div class="portfolio-buttons">
+                            <a href="#" class="portfolio-btn portfolio-btn-view" data-modal="portfolio-modal-2">View Details</a>
+                            <a href="../projects/brain-networks.html" class="portfolio-btn portfolio-btn-details">Project Page</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Portfolio Item 3 -->
+                <div class="portfolio-item animate" data-category="biophysics research">
+                    <div class="portfolio-image" style="background-image: url('../assets/images/portfolio-placeholder-3.jpg');"></div>
+                    <div class="portfolio-overlay">
+                        <h3 class="portfolio-title">Membrane Biophysics Model</h3>
+                        <div class="portfolio-category">Biophysics / Simulation</div>
+                        <div class="portfolio-buttons">
+                            <a href="#" class="portfolio-btn portfolio-btn-view" data-modal="portfolio-modal-3">View Details</a>
+                            <a href="#" class="portfolio-btn portfolio-btn-details">Research Paper</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Portfolio Item 4 -->
+                <div class="portfolio-item animate" data-category="ai visualization">
+                    <div class="portfolio-image" style="background-image: url('../assets/images/portfolio-placeholder-4.jpg');"></div>
+                    <div class="portfolio-overlay">
+                        <h3 class="portfolio-title">RNA Structure Prediction</h3>
+                        <div class="portfolio-category">AI / Biochemistry</div>
+                        <div class="portfolio-buttons">
+                            <a href="#" class="portfolio-btn portfolio-btn-view" data-modal="portfolio-modal-4">View Details</a>
+                            <a href="#" class="portfolio-btn portfolio-btn-details">GitHub Repo</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Portfolio Item 5 -->
+                <div class="portfolio-item animate" data-category="neuroscience research">
+                    <div class="portfolio-image" style="background-image: url('../assets/images/portfolio-placeholder-5.jpg');"></div>
+                    <div class="portfolio-overlay">
+                        <h3 class="portfolio-title">Neural State Transitions</h3>
+                        <div class="portfolio-category">Neuroscience / Data Analysis</div>
+                        <div class="portfolio-buttons">
+                            <a href="#" class="portfolio-btn portfolio-btn-view" data-modal="portfolio-modal-5">View Details</a>
+                            <a href="#" class="portfolio-btn portfolio-btn-details">Project Page</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Portfolio Item 6 -->
+                <div class="portfolio-item animate" data-category="biophysics visualization">
+                    <div class="portfolio-image" style="background-image: url('../assets/images/portfolio-placeholder-6.jpg');"></div>
+                    <div class="portfolio-overlay">
+                        <h3 class="portfolio-title">3D Bioprinting Model</h3>
+                        <div class="portfolio-category">Biophysics / 3D Modeling</div>
+                        <div class="portfolio-buttons">
+                            <a href="#" class="portfolio-btn portfolio-btn-view" data-modal="portfolio-modal-6">View Details</a>
+                            <a href="#" class="portfolio-btn portfolio-btn-details">Project Page</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Modals -->
+    <!-- Modal 1 -->
+    <div id="portfolio-modal-1" class="portfolio-modal">
+        <div class="portfolio-modal-content">
+            <div class="portfolio-modal-close"><i class="fas fa-times"></i></div>
+            <div class="portfolio-modal-image" style="background-image: url('../assets/images/portfolio-placeholder-1.jpg');"></div>
+            <div class="portfolio-modal-body">
+                <h2 class="portfolio-modal-title">MANTIS AI Platform Landscapes</h2>
+                <div class="portfolio-modal-category">AI / Computational Biology</div>
+                <div class="portfolio-modal-description">
+                    <p>As part of the MIT AI Mantis Rising Scholar Program, I worked on creating and improving the MANTIS AI platform's landscapes for drug discovery, molecular dynamics, and patient trajectory analysis. This project involved developing computational models that can predict drug interactions and optimize treatment pathways.</p>
+                    <p>The visualization shown here represents a multi-dimensional landscape of potential drug compounds, with color gradients indicating efficacy against specific targets. This work has implications for accelerating the drug discovery process and personalizing treatment approaches.</p>
+                </div>
+                <div class="portfolio-modal-details">
+                    <div class="portfolio-modal-detail">
+                        <div class="portfolio-modal-detail-label">Date:</div>
+                        <div class="portfolio-modal-detail-value">March 2025 - Present</div>
+                    </div>
+                    <div class="portfolio-modal-detail">
+                        <div class="portfolio-modal-detail-label">Role:</div>
+                        <div class="portfolio-modal-detail-value">Research Assistant</div>
+                    </div>
+                    <div class="portfolio-modal-detail">
+                        <div class="portfolio-modal-detail-label">Technologies:</div>
+                        <div class="portfolio-modal-detail-value">Python, TensorFlow, Molecular Dynamics Simulation</div>
+                    </div>
+                </div>
+                <div class="portfolio-modal-buttons">
+                    <a href="../projects/mantis-ai.html" class="btn btn-primary">View Full Project</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Modal 2 -->
+    <div id="portfolio-modal-2" class="portfolio-modal">
+        <div class="portfolio-modal-content">
+            <div class="portfolio-modal-close"><i class="fas fa-times"></i></div>
+            <div class="portfolio-modal-image" style="background-image: url('../assets/images/portfolio-placeholder-2.jpg');"></div>
+            <div class="portfolio-modal-body">
+                <h2 class="portfolio-modal-title">Brain Network Visualization</h2>
+                <div class="portfolio-modal-category">Neuroscience / Data Visualization</div>
+                <div class="portfolio-modal-description">
+                    <p>This visualization represents functional brain networks involved in mathematical and linguistic processing, based on fMRI data from the Human Connectome Project. Using graph theory and dynamic functional connectivity analysis, I mapped how different brain regions interact during specific cognitive tasks.</p>
+                    <p>The network visualization shows nodes (brain regions) and edges (functional connections), with color coding indicating the strength of connections and the involvement of regions in different types of processing. This work contributes to our understanding of how the brain organizes itself for different cognitive functions.</p>
+                </div>
+                <div class="portfolio-modal-details">
+                    <div class="portfolio-modal-detail">
+                        <div class="portfolio-modal-detail-label">Date:</div>
+                        <div class="portfolio-modal-detail-value">July 2024</div>
+                    </div>
+                    <div class="portfolio-modal-detail">
+                        <div class="portfolio-modal-detail-label">Role:</div>
+                        <div class="portfolio-modal-detail-value">Lead Researcher</div>
+                    </div>
+                    <div class="portfolio-modal-detail">
+                        <div class="portfolio-modal-detail-label">Technologies:</div>
+                        <div class="portfolio-modal-detail-value">Python, NetworkX, Matplotlib, fMRI Analysis</div>
+                    </div>
+                </div>
+                <div class="portfolio-modal-buttons">
+                    <a href="../projects/brain-networks.html" class="btn btn-primary">View Full Project</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Additional modals would be added here for the other portfolio items -->
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-about">
+                    <div class="footer-logo">Fahad<span>AK</span></div>
+                    <p class="footer-description">Physics researcher and computational scientist specializing in AI, neuroscience, and biophysics.</p>
+                    <div class="footer-social">
+                        <a href="https://github.com/AKFahad" class="social-link" target="_blank"><i class="fab fa-github"></i></a>
+                        <a href="https://twitter.com/AK_Fahad" class="social-link" target="_blank"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-links">
+                    <h3 class="footer-heading">Quick Links</h3>
+                    <ul class="footer-links">
+                        <li class="footer-link"><a href="../index.html">Home</a></li>
+                        <li class="footer-link"><a href="../index.html#about">About</a></li>
+                        <li class="footer-link"><a href="../index.html#projects">Projects</a></li>
+                        <li class="footer-link"><a href="../blog/index.html">Blog</a></li>
+                        <li class="footer-link"><a href="../index.html#contact">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-links">
+                    <h3 class="footer-heading">Resources</h3>
+                    <ul class="footer-links">
+                        <li class="footer-link"><a href="#">Download CV</a></li>
+                        <li class="footer-link"><a href="../projects/index.html">All Projects</a></li>
+                        <li class="footer-link"><a href="../skills.html">Certifications</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 Fahad Ali Khan. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="../assets/js/main.js"></script>
+    
+    <!-- Portfolio-specific JavaScript -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Portfolio filtering
+            const filterButtons = document.querySelectorAll('.portfolio-filter');
+            const portfolioItems = document.querySelectorAll('.portfolio-item');
+            
+            filterButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    // Remove active class from all buttons
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    
+                    // Add active class to clicked button
+                    button.classList.add('active');
+                    
+                    const filterValue = button.getAttribute('data-filter');
+                    
+                    portfolioItems.forEach(item => {
+                        if (filterValue === 'all') {
+                            item.style.display = 'block';
+                        } else {
+                            const itemCategories = item.getAttribute('data-category').split(' ');
+                            if (itemCategories.includes(filterValue)) {
+                                item.style.display = 'block';
+                            } else {
+                                item.style.display = 'none';
+                            }
+                        }
+                    });
+                });
+            });
+            
+            // Portfolio modal functionality
+            const modalButtons = document.querySelectorAll('[data-modal]');
+            const modals = document.querySelectorAll('.portfolio-modal');
+            const closeButtons = document.querySelectorAll('.portfolio-modal-close');
+            
+            modalButtons.forEach(button => {
+                button.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const modalId = button.getAttribute('data-modal');
+                    document.getElementById(modalId).style.display = 'block';
+                    document.body.style.overflow = 'hidden';
+                });
+            });
+            
+            closeButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    modals.forEach(modal => {
+                        modal.style.display = 'none';
+                    });
+                    document.body.style.overflow = 'auto';
+                });
+            });
+            
+            // Close modal when clicking outside of content
+            modals.forEach(modal => {
+                modal.addEventListener('click', (e) => {
+                    if (e.target === modal) {
+                        modal.style.display = 'none';
+                        document.body.style.overflow = 'auto';
+                    }
+                });
+            });
+            
+            // Close modal with Escape key
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') {
+                    modals.forEach(modal => {
+                        modal.style.display = 'none';
+                    });
+                    document.body.style.overflow = 'auto';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
